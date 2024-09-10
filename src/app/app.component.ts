@@ -9,7 +9,7 @@ export class AppComponent {
   users = [
     {
       name: 'Felipe',
-      status: 1,
+      status: 3,
     },
     {
       name: 'Laura',
@@ -36,14 +36,25 @@ export class AppComponent {
     });
   }
 
-  getUsersStatus(userStatus: number): string {
+  getUserStatus(userStatus: number): string {
     console.log('getUserStatus');
 
-    const status: {[key:string]: string }= {
+    const status: { [key:string]: string } = {
       1: 'Ativo',
       2: 'Inativo',
     };
 
     return status[userStatus];
+  }
+
+  getUserImage(userStatus: number): string {
+    console.log('getUserImage');
+
+    const statusImages: { [key:number]: string } = {
+      1: 'assets/icons/active-user-icon.png',
+      2: 'assets/icons/inactive-user-icon.png',
+    };
+
+    return statusImages[userStatus];
   }
 }
